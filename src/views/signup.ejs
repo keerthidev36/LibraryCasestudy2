@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title><%=title%></title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    
+    
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+    <link rel="stylesheet" href="css/signup.css"> 
+		 <link href="css/styles.css" rel="stylesheet"> 
+   
+   
+	</head>
+  <body>
+	<!-- <body style="background-image: url(https://i.pinimg.com/originals/4d/e0/83/4de08397e9ebc78b2a993a0fca0c042c.jpg);background-repeat:no-repeat; background-size: cover;"> -->
+<header class="navbar navbar-bright navbar-fixed-top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        
+      </button>
+      <a href="/" class="navbar-brand">Home</a>
+    </div>
+    <nav class="collapse navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav navbar-right">
+        <%for(i=3;i<nav.length;i++){%>
+        <li>
+          <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
+        
+        </li>
+      <%}%>
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  <div class="container">
+     
+    <form id="form" action="/signup" method="post" onsubmit="return !!(userValidate()& phoneValidate()&phoneValidate()&validateEmail()&validatePass()& confirmPass())">
+      <div class="header text-center">
+        <h2>New Registration</h2>
+        
+    </div>
+    <br>
+    <%- include('partials/messages'); %>
+        <div class="form-group ">
+            <input type="text" placeholder="Username" id="username" name="name"required  oninput="userValidate()">
+            <i class="fas fa-exclamation-circle"></i>
+            <i class="fas fa-check-circle"></i>
+            <small>error message</small>
+        </div>
+        <br>
+        <div class=" form-group ">
+          <input type="tel" placeholder="Phone Number" id="phone" name="phone" oninput="phoneValidate()"  required>
+          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-check-circle"></i>
+          <small>only xxxxxxxxxx,xxx-xxx-xxxx,xxx.xxx.xxxx format allowed</small>
+          
+
+      </div>
+      <br>
+        <div class=" form-group ">
+            <input type="email" placeholder="Email" id="email"  name="email"required oninput="validateEmail()">
+            <i class="fas fa-exclamation-circle"></i>
+            <i class="fas fa-check-circle"></i>
+            <small>error message</small>
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="password" placeholder="Password"  id="password"  name="password"required oninput="validatePass()">
+            <i class="fas fa-exclamation-circle"></i>
+            <i class="fas fa-check-circle"></i>
+            <small>error message</small>
+            <div id="message">
+              <h6>Password must contain the following:</h6>
+              <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+              <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+              <p id="number" class="invalid">A <b>number</b></p>
+              <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+            </div>
+          </div>
+          <br>
+     <div class="form-group">
+            <input type="password" placeholder="confirmpassword" id="password2" name="confirmpassword"  required oninput="confirmPass()" >
+            <i class="fas fa-exclamation-circle"></i>
+            <i class="fas fa-check-circle"></i>
+            <small>error message</small>
+        </div>
+        <button id="submit">SUBMIT</button>
+        <br><br>
+        <p>Already have an account? <a href="/login" style="color:red;"><b>Sign in</b></a></p>
+     
+    </form>
+</div> 
+
+
+
+
+        <br>
+       
+      
+
+      
+   
+    
+    <footer style="margin-top:70%;">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <ul class="list-inline">
+              <li><i class="icon-facebook icon-2x"></i></li>
+              <li><i class="icon-twitter icon-2x"></i></li>
+              <li><i class="icon-google-plus icon-2x"></i></li>
+              <li><i class="icon-pinterest icon-2x"></i></li>
+            </ul>
+            
+          </div>
+          <div class="col-sm-6">
+              <p class="pull-right">Built with <i class="icon-heart-empty"></i> at <a href="http://www.bootply.com">Bootply</a></p>      
+          </div>
+        </div>
+      </div>
+    </footer>
+ 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+    <script src="js/login2.js"></script>
+    
+  </body>
+</html>
